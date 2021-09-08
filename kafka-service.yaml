@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (955b78124)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: kafka-app
+  name: kafka-app
+  namespace: avc
+spec:
+  ports:
+    - port: 9092
+      targetPort: 9093
+      name: "kafka-port"
+  selector:
+    io.kompose.service: kafka-app
+status:
+  loadBalancer: {}
